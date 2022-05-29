@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "A5bJ5L3irIKaRKukbxP9yxKsVD60kbS/fwfLLT6eonJjz7XhTuTZM3s9P186Lu2VT5PuzBXETnSkLeTiqytAFw==",
+  "success": true,
+  "projectFilePath": "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.linq.dynamic.core\\1.2.18\\system.linq.dynamic.core.1.2.18.nupkg.sha512"
+  ],
+  "logs": []
+}
