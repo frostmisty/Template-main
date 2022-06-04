@@ -4,13 +4,13 @@ using ApplicationCore.Spesification;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Template.Domain.Entity;
-using Template.Features;
 using Template.Interface;
 using Template.ViewModels;
+using Template.ViewModels.Base;
 
 namespace Template.Controllers
 {
-    public class MsModuleController : Controller
+    public class MsModuleController : BaseController
     {
         public readonly IMsModuleService _msModuleService;
 
@@ -20,16 +20,58 @@ namespace Template.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            CreateorUpdate("M0001");
             var viewModels = await _msModuleService.Index();
             return View(viewModels);
         }
-
-        public async Task<IActionResult> CreateorUpdate(string ModuleID)
+        //[HttpGet("ModuleID")]
+        public async Task<IActionResult> AddOrUpdate(string ModuleID)
         {
             var viewModels = await _msModuleService.GetMsModuleByID(ModuleID);
             return View(viewModels);
         }
 
+        public async Task<IActionResult> Delete(string id)
+        {
+            
+            ReturnViewModel viewModel = new ReturnViewModel();
+            viewModel = await _msModuleService.Delete(id);
+
+            if(viewModel.IsSuccess == true)
+            {
+                Success("Data berhasil DiHapus");
+            }
+            else
+            {
+                Error(viewModel.ReturnValue);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddOrUpdate(MsModuleViewModel ViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                if (string.IsNullOrEmpty(ViewModel.ModuleId) || string.IsNullOrEmpty(ViewModel.ModuleDesc))
+                {
+                    Error("Module ID dan Module Desc tidak boleh kosong");
+                    return View(ViewModel);
+                }
+            }
+            ReturnViewModel returnView = new ReturnViewModel();
+            returnView = await _msModuleService.Update(ViewModel);
+
+            if(returnView.IsSuccess == true)
+            {
+                Success("Data Berhasil Disimpan");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                Error(returnView.ReturnValue);
+                return View(ViewModel);
+            }
+        }
     }
 }

@@ -1,6 +1,8 @@
 using ApplicationCore.Base.Spesification;
 using MediatR;
+using Template.Domain.Entity;
 using Template.ViewModels;
+using Template.ViewModels.Base;
 
 namespace Template.Interface
 {
@@ -9,7 +11,7 @@ namespace Template.Interface
         Task<IEnumerable<MsModuleViewModel>> Index();
         Task<IEnumerable<MsModuleViewModel>> GetMsModuleByMsModuleDesc(string ModuleDesc);
         Task<MsModuleViewModel> GetMsModuleByID(string ModuleID);
-        Task Update(MsModuleViewModel viewModel);
-        Task Delete(string ModuleID);
+        Task<ReturnViewModel> Update(MsModuleViewModel viewModel);
+        Task<ReturnViewModel> Delete(string ModuleID);
     }
 }

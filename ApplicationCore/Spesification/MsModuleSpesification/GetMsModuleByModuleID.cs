@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Template.Domain.Entity;
 
 namespace ApplicationCore.Spesification.MsModuleSpesification
-{ 
+{
     public class GetMsModuleByModuleID : BaseSpesification<MsModule>
     {
         public GetMsModuleByModuleID(string ModuleID) : base(x => x.ModuleId.Equals(ModuleID))

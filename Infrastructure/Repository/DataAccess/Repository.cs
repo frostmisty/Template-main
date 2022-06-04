@@ -21,14 +21,17 @@ namespace Infrastructure.Repository.DataAccess
             _mainTemplateContext = mainTemplateContext;
         }
 
-        public Task<T> AddAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task<T> AddAsync(T entity, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _mainTemplateContext.Set<T>().AddAsync(entity);
+            await _mainTemplateContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            _mainTemplateContext.Set<T>().Update(entity);
+            await _mainTemplateContext.SaveChangesAsync();
         }
 
         public IEnumerable<T> GetItemBySpesification(ISpesification<T> spesification = null)
@@ -47,9 +50,11 @@ namespace Infrastructure.Repository.DataAccess
             return item;
         }
 
-        public Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            _mainTemplateContext.Set<T>().Update(entity);
+            await _mainTemplateContext.SaveChangesAsync();
+            return entity;
         }
     }
 }

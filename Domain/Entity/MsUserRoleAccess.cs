@@ -12,14 +12,15 @@ namespace Template.Domain.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccessID { get; set; }
-        [StringLength(10)]
-        public string ModuleId { get; set; } = null!;
+
         [StringLength(50)]
-        public string UserRoleId { get; set; } = null!;
+        public string UserRoleId { get; set; }
         [StringLength(10)]
-        public string PageId { get; set; } = null!;
+        public string PageId { get; set; }
+        [StringLength(200)]
+        public string Permission { get; set; }
         [StringLength(25)]
-        public string CrtUsrId { get; set; } = null!;
+        public string CrtUsrId { get; set; }
         public DateTime TsCrt { get; set; }
         [StringLength(25)]
         public string? ModUsrId { get; set; }

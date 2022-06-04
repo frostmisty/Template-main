@@ -12,15 +12,15 @@ namespace Template.Domain.Entity
         [Key]
         public string MenuId { get; set; }
         [StringLength(10)]
-        public string ModuleId { get; set; } = null!;
+        public string ModuleId { get; set; }
         [StringLength(10)]
-        public string PageId { get; set; } = null!;
-        public int? ParentId { get; set; }
+        public string PageId { get; set; }
+        public string? ParentId { get; set; }
         public int? Seq { get; set; }
         [StringLength(50)]
         public string? MenuText { get; set; }
         [StringLength(25)]
-        public string CrtUsrId { get; set; } = null!;
+        public string CrtUsrId { get; set; }
         public DateTime TsCrt { get; set; }
         [StringLength(25)]
         public string? ModUsrId { get; set; }

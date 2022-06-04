@@ -23,7 +23,7 @@ namespace Template.Domain.Entity
         [StringLength(250)]
         public string? Remark { get; set; }
         [StringLength(25)]
-        public string CrtUsrId { get; set; } = null!;
+        public string CrtUsrId { get; set; }
         public DateTime TsCrt { get; set; }
         [StringLength(25)]
         public string? ModUsrId { get; set; }

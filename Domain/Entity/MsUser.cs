@@ -11,12 +11,12 @@ namespace Template.Domain.Entity
     {
         [Key,Column(Order = 0)]
         [StringLength(10)]
-        public string ModuleId { get; set; } = null!;
+        public string ModuleId { get; set; }
         [Key, Column(Order = 1)]
         [StringLength(10)]
-        public string UserId { get; set; } = null!;
+        public string UserId { get; set; }
         [StringLength(50)]
-        public string UserRoleId { get; set; } = null!;
+        public string UserRoleId { get; set; }
         [StringLength(50)]
         public string? Area { get; set; }
         [StringLength(50)]
@@ -27,7 +27,7 @@ namespace Template.Domain.Entity
         public string? Info2 { get; set; }
         public string? Info3 { get; set; }
         [StringLength(25)]
-        public string CrtUsrId { get; set; } = null!;
+        public string CrtUsrId { get; set; }
         public DateTime TsCrt { get; set; }
         [StringLength(25)]
         public string? ModUsrId { get; set; }

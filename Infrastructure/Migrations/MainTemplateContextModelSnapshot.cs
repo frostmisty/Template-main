@@ -35,7 +35,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(1)
                         .HasColumnType("nvarchar(1)")
-                        .HasDefaultValueSql("Y");
+                        .HasDefaultValue("Y");
 
                     b.Property<string>("CrtUsrId")
                         .IsRequired()
@@ -74,11 +74,13 @@ namespace Infrastructure.Migrations
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime?>("TsMod")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("ItemID");
 
-                    b.ToTable("MsEnumItems");
+                    b.ToTable("MsEnumItem");
                 });
 
             modelBuilder.Entity("Template.Domain.Entity.MsMenu", b =>
@@ -88,8 +90,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("ActiveFlag")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(1)")
+                        .HasDefaultValue("Y");
 
                     b.Property<string>("CrtUsrId")
                         .IsRequired()
@@ -114,21 +118,25 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("int");
+                    b.Property<string>("ParentId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Seq")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("TsCrt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime?>("TsMod")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("MenuId");
 
-                    b.ToTable("MsMenus");
+                    b.ToTable("MsMenu");
                 });
 
             modelBuilder.Entity("Template.Domain.Entity.MsModule", b =>
@@ -139,8 +147,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("ActiveFlag")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(1)")
+                        .HasDefaultValue("Y");
 
                     b.Property<string>("CrtUsrId")
                         .IsRequired()
@@ -166,14 +176,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("TsCrt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime?>("TsMod")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("ModuleId");
 
-                    b.ToTable("MsModules");
+                    b.ToTable("MsModule");
                 });
 
             modelBuilder.Entity("Template.Domain.Entity.MsPage", b =>
@@ -184,8 +198,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("ActiveFlag")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(1)")
+                        .HasDefaultValue("Y");
 
                     b.Property<string>("CrtUsrId")
                         .IsRequired()
@@ -215,14 +231,61 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("TsCrt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime?>("TsMod")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("PageId");
 
-                    b.ToTable("MsPages");
+                    b.ToTable("MsPage");
+                });
+
+            modelBuilder.Entity("Template.Domain.Entity.MsPermission", b =>
+                {
+                    b.Property<int>("PermissionID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PermissionID"), 1L, 1);
+
+                    b.Property<string>("ActiveFlag")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)")
+                        .HasDefaultValue("Y");
+
+                    b.Property<string>("CrtUsrId")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("ModUsrId")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("PermissionDesc")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("TsCrt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime?>("TsMod")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.HasKey("PermissionID");
+
+                    b.ToTable("MsPermission");
                 });
 
             modelBuilder.Entity("Template.Domain.Entity.MsUser", b =>
@@ -239,8 +302,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("ActiveFlag")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(1)")
+                        .HasDefaultValue("Y");
 
                     b.Property<string>("Area")
                         .HasMaxLength(50)
@@ -273,10 +338,14 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(25)");
 
                     b.Property<DateTime>("TsCrt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime?>("TsMod")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("UserRoleId")
                         .IsRequired()
@@ -285,7 +354,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("UserId", "ModuleId");
 
-                    b.ToTable("MsUsers");
+                    b.ToTable("MsUser");
                 });
 
             modelBuilder.Entity("Template.Domain.Entity.MsUserRole", b =>
@@ -296,45 +365,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("ActiveFlag")
                         .IsRequired()
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("CrtUsrId")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<string>("ModUsrId")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<DateTime>("TsCrt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("TsMod")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserRoleDesc")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("UserRoleId");
-
-                    b.ToTable("MsUserRoles");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entity.MsUserRoleAccess", b =>
-                {
-                    b.Property<int>("AccessID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccessID"), 1L, 1);
-
-                    b.Property<string>("ActiveFlag")
-                        .IsRequired()
                         .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(1)")
+                        .HasDefaultValue("Y");
 
                     b.Property<string>("CrtUsrId")
                         .IsRequired()
@@ -350,16 +384,66 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<DateTime>("TsCrt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime?>("TsMod")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserRoleDesc")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("UserRoleId");
+
+                    b.ToTable("MsUserRole");
+                });
+
+            modelBuilder.Entity("Template.Domain.Entity.MsUserRoleAccess", b =>
+                {
+                    b.Property<int>("AccessID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccessID"), 1L, 1);
+
+                    b.Property<string>("ActiveFlag")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)")
+                        .HasDefaultValue("Y");
+
+                    b.Property<string>("CrtUsrId")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("ModUsrId")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
                     b.Property<string>("PageId")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<string>("Permission")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<DateTime>("TsCrt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime?>("TsMod")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("UserRoleId")
                         .IsRequired()
@@ -368,7 +452,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("AccessID");
 
-                    b.ToTable("MsUserRoleAccesss");
+                    b.ToTable("MsUserRoleAccess");
                 });
 #pragma warning restore 612, 618
         }

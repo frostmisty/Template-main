@@ -13,11 +13,13 @@ namespace Template.Domain.Entity
         
         [Key]
         [StringLength(50)]
-        public string UserRoleId { get; set; } = null!;
+        public string UserRoleId { get; set; }
+        [StringLength(10)]
+        public string ModuleId { get; set; }
         [StringLength(100)]
         public string? UserRoleDesc { get; set; }
         [StringLength(25)]
-        public string CrtUsrId { get; set; } = null!;
+        public string CrtUsrId { get; set; }
         public DateTime TsCrt { get; set; }
         [StringLength(25)]
         public string? ModUsrId { get; set; }

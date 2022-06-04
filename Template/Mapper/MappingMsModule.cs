@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Template.Domain.Entity;
-using Template.Features;
 using Template.ViewModels;
 
 namespace Template.Mapper
@@ -14,7 +13,7 @@ namespace Template.Mapper
     {
         public MappingMsModule()
         {
-            CreateMap<MsModule, MsModuleViewModel>();
+            CreateMap<MsModule, MsModuleViewModel>().ReverseMap();
             //CreateMap<List<MsModule>, List<MsModuleViewModel>>();
         }
     }

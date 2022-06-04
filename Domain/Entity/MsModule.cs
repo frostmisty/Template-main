@@ -11,14 +11,14 @@ namespace Template.Domain.Entity
     {
         [Key]
         [StringLength(10)]
-        public string ModuleId { get; set; } = null!;
+        public string ModuleId { get; set; }
         [StringLength(50)]
-        public string ModuleDesc { get; set; } = null!;
+        public string ModuleDesc { get; set; }
         public string? Info1 { get; set; }
         public string? Info2 { get; set; }
         public string? Info3 { get; set; }
         [StringLength(25)]
-        public string CrtUsrId { get; set; } = null!;
+        public string CrtUsrId { get; set; }
         public DateTime TsCrt { get; set; }
         [StringLength(25)]
         public string? ModUsrId { get; set; }

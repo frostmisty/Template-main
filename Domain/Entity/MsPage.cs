@@ -10,18 +10,18 @@ namespace Template.Domain.Entity
     public partial class MsPage
     {
         [StringLength(10)]
-        public string ModuleId { get; set; } = null!;
+        public string ModuleId { get; set; }
         [Key]
         [StringLength(10)]
-        public string PageId { get; set; } = null!;
+        public string PageId { get; set; }
         [StringLength(100)]
-        public string PageName { get; set; } = null!;
+        public string PageName { get; set; }
         [StringLength(100)]
         public string? PageDesc { get; set; }
         [StringLength(100)]
         public string? PageIcon { get; set; }
         [StringLength(25)]
-        public string CrtUsrId { get; set; } = null!;
+        public string CrtUsrId { get; set; }
         public DateTime TsCrt { get; set; }
         [StringLength(25)]
         public string? ModUsrId { get; set; }

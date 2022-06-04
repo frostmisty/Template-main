@@ -1,3 +1,5 @@
+using Template.ViewModels.Base;
+
 namespace Template.ViewModels
 {
     public class MsModuleViewModel
@@ -12,5 +14,6 @@ namespace Template.ViewModels
         public string ModUsrId { get; set; }
         public DateTime TsMod { get; set; }
         public string ActiveFlag { get; set; }
+        public ReturnViewModel ReturnViewModel { get; set; }
     }
 }

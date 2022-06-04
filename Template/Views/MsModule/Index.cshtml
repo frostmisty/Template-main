@@ -1,59 +1,99 @@
-﻿@using Template.ViewModels  
-@model List<MsModuleViewModel>;
+﻿@using Template.ViewModels
+@model List<MsModuleViewModel>
 @{
     ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+    //Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome To Ms Module</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div class="row">
-        <div class="container">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Module ID</th>
-                        <th>Module Desc</th>
-                        <th>Info 1</th>
-                        <th>Info 2</th>
-                        <th>Info 3</th>
-                        <th>Creator</th>
-                        <th>Date Created</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(Model != null)
-                    {
-                        foreach(var item in Model)
-                        {
-                            <tr>
-                                <td>@Html.DisplayFor(modelItem => item.ModuleId)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ModuleDesc)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Info1)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Info2)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Info3)</td>
-                                <td>@Html.DisplayFor(modelItem => item.CrtUsrId)</td>
-                                <td>@Html.DisplayFor(modelItem => item.TsCrt)</td>
-                                <td>
-                                    <input type="button" class="btn btn-sm btn-primary " value="AddOrUpdate" id="AddOrUpdate"/>
-                                    <input type="button" class="btn btn-sm btn-danger" value="btnDelete" id="btnDelete"/>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Master Module</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item active">Master Module</li>
+                </ol>
+            </div>
         </div>
-
     </div>
 </div>
-<script>
-    $(function (){
-        $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        })
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row col-md-12">
+                            @Html.Partial("_AlertPartial")
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                <h2 class="card-title"> List Master Module</h2>
+                            </div>
+                            <div class="col-md-6" style="text-align:right">
+                                <a class="btn btn-sm btn-primary" title="Create New" asp-controller="MsModule" asp-action="AddOrUpdate">New Entry</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="msmoduledt" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Module ID</th>
+                                    <th>ModuleDesc</th>
+                                    <th>Info1</th>
+                                    <th>Info2</th>
+                                    <th>Info3</th>
+                                    <th>Creator</th>
+                                    <th>Time Created</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.ModuleId</td>
+                                            <td>@item.ModuleDesc</td>
+                                            <td>@item.Info1</td>
+                                            <td>@item.Info2</td>
+                                            <td>@item.Info3</td>
+                                            <td>@item.CrtUsrId</td>
+                                            <td>@item.TsCrt</td>
+                                            <td>
+                                                <a class="blue fa fa-edit" title="Edit" asp-controller="MsModule" asp-action="AddOrUpdate" asp-route-ModuleID="@item.ModuleId"></a>
+                                                <span>&emsp;</span>
+                                                <a class="red fa fa-trash delete" title="Delete" asp-controller="MsModule" asp-action="Delete" asp-route-id="@item.ModuleId"></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<partial name="../Modals/ModalsDelete" />*@
+</div>
+@section CustomJsFooter
+{
+    $("#msmoduledt").DataTable({
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#msmoduledt_wrapper .col-md-6:eq(0)');
 
+    $(".delete").click(function(event){
+    if(confirm("Are you sure you want to Delete?"))
+    {
+    }else{
+    event.preventDefault();
     }
-</script>
+    })
+}
