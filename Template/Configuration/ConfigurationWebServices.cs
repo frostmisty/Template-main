@@ -13,6 +13,7 @@ namespace Template.Configuration
         {
 
             services.AddScoped(typeof(IMsModuleService), (typeof(MsModuleService)));
+            services.AddScoped(typeof(IMsPageService), (typeof(MsPageService)));
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             var mapperConfig = new MapperConfiguration(mc =>
             {

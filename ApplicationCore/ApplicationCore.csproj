@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\Base\**" />
+    <EmbeddedResource Remove="Services\Base\**" />
+    <None Remove="Services\Base\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Inteface\IMsModuleRepositories.cs" />
     <Compile Remove="Inteface\IMsModuleRepository.cs" />
     <Compile Remove="Services\MsModuleRepository.cs" />

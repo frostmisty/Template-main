@@ -97,8 +97,8 @@ namespace Template.Services
                 msModule = new MsModule
                 {
                     CrtUsrId = "SYSTEM",
-                    TsCrt = DateTime.Now,
-                    ActiveFlag = "Y"
+                    //TsCrt = DateTime.Now,
+                    //ActiveFlag = "Y"
                 };
                 IsNew = true;
             }
