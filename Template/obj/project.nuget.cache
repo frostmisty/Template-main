@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MoW7EO+24r2eLsFWxZn74jSRhu9NaJfxk2bSa8DqUgy3TmlNZlm+TMlc7Hsk6ACYm8yMQp3ZRUf8/lidgcReoQ==",
+  "dgSpecHash": "GDGPWrtT+YNJFCd9Mzjf+1Hgt+aSPbYShY5SYX3wZDiB6+0fJIGSls+JsZvOk3kF/B2jARwt7eVIU9MM7w4cRQ==",
   "success": true,
-  "projectFilePath": "D:\\Project\\Template-main\\Template\\Template.csproj",
+  "projectFilePath": "d:\\Project\\Template-main\\Template\\Template.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

@@ -1960,11 +1960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "d:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "d:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\Template-main\\Infrastructure\\obj\\",
+      "outputPath": "d:\\Project\\Template-main\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1981,11 +1981,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
-              "projectPath": "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj"
+            "d:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
+              "projectPath": "d:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj"
             },
-            "D:\\Project\\Template-main\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Project\\Template-main\\Domain\\Domain.csproj"
+            "d:\\Project\\Template-main\\Domain\\Domain.csproj": {
+              "projectPath": "d:\\Project\\Template-main\\Domain\\Domain.csproj"
             }
           }
         }
@@ -2040,7 +2040,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

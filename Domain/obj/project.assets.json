@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\Template-main\\Domain\\Domain.csproj",
+      "projectUniqueName": "d:\\Project\\Template-main\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "D:\\Project\\Template-main\\Domain\\Domain.csproj",
+      "projectPath": "d:\\Project\\Template-main\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\Template-main\\Domain\\obj\\",
+      "outputPath": "d:\\Project\\Template-main\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
