@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6hdMUGGabYHGKmDO3cUqky/o3PoA/bzmgdL0q3jjxZPD3SVOpgt4mIu+STk1tcct6djb/oKzZ2sYRvJJj/qAYQ==",
+  "dgSpecHash": "MPGCb940qn+RUdK5NYRy/PtROTrdLX6MkCBKIUd3o+EhqhtPtWWpoXsVWm93R0dyphzMO+UmUmpLLiChSRR1Sw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
+  "projectFilePath": "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ASUS\\.nuget\\packages\\system.linq.dynamic.core\\1.2.18\\system.linq.dynamic.core.1.2.18.nupkg.sha512"
+    "C:\\Users\\01135702\\.nuget\\packages\\system.linq.dynamic.core\\1.2.18\\system.linq.dynamic.core.1.2.18.nupkg.sha512"
   ],
   "logs": []
 }

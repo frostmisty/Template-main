@@ -9,11 +9,11 @@ using Template.ViewModels;
 
 namespace Template.Mapper
 {
-    public class MappingMsModule : Profile
+    public class MappingMsPage : Profile
     {
-        public MappingMsModule()
+        public MappingMsPage()
         {
-            CreateMap<MsModule, MsModuleViewModel>().ReverseMap();
+            CreateMap<MsPage, MsPageViewModel>().ReverseMap();
             //CreateMap<List<MsModule>, List<MsModuleViewModel>>();
         }
     }

@@ -85,19 +85,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
+    "C:\\Users\\01135702\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
+      "projectUniqueName": "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
       "projectName": "ApplicationCore",
-      "projectPath": "d:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "d:\\Project\\Template-main\\ApplicationCore\\obj\\",
+      "projectPath": "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
+      "packagesPath": "C:\\Users\\01135702\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\Template\\Template-main\\ApplicationCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\01135702\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -105,14 +105,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "d:\\Project\\Template-main\\Domain\\Domain.csproj": {
-              "projectPath": "d:\\Project\\Template-main\\Domain\\Domain.csproj"
+            "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj"
             }
           }
         }
@@ -147,7 +147,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

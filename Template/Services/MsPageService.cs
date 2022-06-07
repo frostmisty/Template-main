@@ -45,12 +45,13 @@ namespace Template.Services
             var filterSpecification = new GetMsPageByPageID(PageID);
             var msPage = _msPageRepository.GetByIDAsync(filterSpecification);
             var ViewModel = _mapper.Map<MsPage, MsPageViewModel>(msPage);
-            ViewModel.GetModule = (await GetModuleList()).ToList();
+            
 
             if (ViewModel == null)
             {
                 ViewModel = new MsPageViewModel();
             }
+            ViewModel.GetModule = (await GetModuleList()).ToList();
             return ViewModel;
         }
         public async Task<ReturnViewModel> Update(MsPageViewModel viewModel)

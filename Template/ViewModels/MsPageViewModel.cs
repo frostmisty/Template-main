@@ -16,6 +16,6 @@ namespace Template.ViewModels
         public DateTime TsMod { get; set; }
         public string ActiveFlag { get; set; }
         public ReturnViewModel ReturnViewModel { get; set; }
-        public IEnumerable<SelectListItem> GetModule { get; set; }
+        public List<SelectListItem> GetModule { get; set; }
     }
 }

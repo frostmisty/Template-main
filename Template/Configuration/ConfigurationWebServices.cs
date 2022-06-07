@@ -18,6 +18,7 @@ namespace Template.Configuration
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingMsModule());
+                mc.AddProfile(new MappingMsPage());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

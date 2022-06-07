@@ -63,7 +63,7 @@
                                             <td>@item.PageDesc</td>
                                             <td>@item.PageName</td>
                                             <td>@item.PageIcon</td>
-                                            
+
                                             <td>@item.CrtUsrId</td>
                                             <td>@item.TsCrt</td>
                                             <td>
@@ -88,7 +88,7 @@
     $("#mspagedt").DataTable({
     "responsive": true, "lengthChange": false, "autoWidth": false,
     "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#msPagedt_wrapper .col-md-6:eq(0)');
+    }).buttons().container().appendTo('#mspagedt_wrapper .col-md-6:eq(0)');
 
     $(".delete").click(function(event){
     if(confirm("Are you sure you want to Delete?"))
