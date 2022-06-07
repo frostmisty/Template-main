@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Handler\**" />
+    <EmbeddedResource Remove="Handler\**" />
+    <None Remove="Handler\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Repository\DataAccess\MainTemplateRepository.cs" />
   </ItemGroup>
 
@@ -31,7 +37,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Handler\" />
   </ItemGroup>
 
 </Project>
