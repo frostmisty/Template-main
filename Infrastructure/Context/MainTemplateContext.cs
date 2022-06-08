@@ -15,7 +15,7 @@ namespace Infrastructure.Context
         {
 
         }
-        public DbSet<MsEnumitem> MsEnumItem { get; set; }
+        public DbSet<MsEnumItem> MsEnumItem { get; set; }
         public DbSet<MsMenu> MsMenu { get; set; }
         public DbSet<MsModule> MsModule { get; set; }
         public DbSet<MsPage> MsPage { get; set; }
@@ -26,12 +26,11 @@ namespace Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<MsUser>().HasKey(x => new { x.UserId, x.ModuleId });
-            builder.Entity<MsUser>().HasKey(x => new { x.UserId, x.ModuleId });
+            builder.Entity<MsUser>().HasKey(x => new { x.UserId, x.ModuleId,x.UserRoleId });
             //MsEnumItems
-            builder.Entity<MsEnumitem>().Property(x => x.ActiveFlag).HasDefaultValue("Y");
-            builder.Entity<MsEnumitem>().Property(x => x.TsCrt).HasDefaultValueSql("GETDATE()");
-            builder.Entity<MsEnumitem>().Property(x => x.TsMod).HasDefaultValueSql("GETDATE()");
+            builder.Entity<MsEnumItem>().Property(x => x.ActiveFlag).HasDefaultValue("Y");
+            builder.Entity<MsEnumItem>().Property(x => x.TsCrt).HasDefaultValueSql("GETDATE()");
+            builder.Entity<MsEnumItem>().Property(x => x.TsMod).HasDefaultValueSql("GETDATE()");
 
             //MsModule
             builder.Entity<MsModule>().Property(x => x.ActiveFlag).HasDefaultValue("Y");

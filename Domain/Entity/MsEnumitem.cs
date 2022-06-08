@@ -7,7 +7,7 @@ using Template.Domain.Base;
 
 namespace Template.Domain.Entity
 {
-    public partial class MsEnumitem
+    public partial class MsEnumItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

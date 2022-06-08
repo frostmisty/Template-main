@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using Template.Domain.Entity;
 
 namespace ApplicationCore.Spesification.MsUserRoleAccessSpesification
-{
+{ 
     public class GetMsUserRoleAccessByUserRoleAccessID : BaseSpesification<MsUserRoleAccess>
     {
-        public GetMsUserRoleAccessByUserRoleAccessID(string AccessID) : base(x => x.AccessID.Equals(AccessID))
+        public GetMsUserRoleAccessByUserRoleAccessID(int AccessID) : base(x => x.AccessID.Equals(AccessID))
         {
             //AddInclude(x => x.UserRoleAccessId);
         }

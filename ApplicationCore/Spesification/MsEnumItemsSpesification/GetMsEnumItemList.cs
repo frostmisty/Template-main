@@ -9,7 +9,7 @@ using Template.Domain.Entity;
 
 namespace ApplicationCore.Spesification.MsEnumItemSpesification
 {
-    public class GetMsEnumItemList : BaseSpesification<MsEnumitem>
+    public class GetMsEnumItemList : BaseSpesification<MsEnumItem>
     {
         public GetMsEnumItemList() : base(x => x.ActiveFlag.Equals("Y"))
         {

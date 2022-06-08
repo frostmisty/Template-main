@@ -1,0 +1,95 @@
+﻿@using Template.ViewModels
+@model List<MsUserRoleViewModel>
+@{
+    ViewData["Title"] = "Home UserRole";
+    //Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Master UserRole</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item active">Master UserRole</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row col-md-12">
+                            @Html.Partial("_AlertPartial")
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                <h2 class="card-title"> List Master UserRole</h2>
+                            </div>
+                            <div class="col-md-6" style="text-align:right">
+                                <a class="btn btn-sm btn-primary" title="Create New" asp-controller="MsUserRole" asp-action="AddOrUpdate">New Entry</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="mspagedt" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Module ID</th>
+                                    <th>UserRole ID</th>
+                                    <th>UserRoleDesc</th>
+                                    <th>Creator</th>
+                                    <th>Time Created</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.ModuleId</td>
+                                            <td>@item.UserRoleId</td>
+                                            <td>@item.UserRoleDesc</td>
+                                            <td>@item.CrtUsrId</td>
+                                            <td>@item.TsCrt</td>
+                                            <td>
+                                                <a class="blue fa fa-edit" title="Edit" asp-controller="MsUserRole" asp-action="AddOrUpdate" asp-route-UserRoleID="@item.UserRoleId"></a>
+                                                <span>&emsp;</span>
+                                                <a class="red fa fa-trash delete" title="Delete" asp-controller="MsUserRole" asp-action="Delete" asp-route-id="@item.UserRoleId"></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<partial name="../Modals/ModalsDelete" />*@
+</div>
+@section CustomJsFooter
+{
+    $("#mspagedt").DataTable({
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#mspagedt_wrapper .col-md-6:eq(0)');
+
+    $(".delete").click(function(event){
+    if(confirm("Are you sure you want to Delete?"))
+    {
+    }else{
+    event.preventDefault();
+    }
+    })
+}

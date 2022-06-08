@@ -1,0 +1,92 @@
+﻿@using Template.ViewModels
+@model MsMenuViewModel
+@{
+    ViewData["Title"] = "Home Menu";
+    //Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Master Menu</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="MsMenu" asp-action="Index">Master Menu</a></li>
+                    <li class="breadcrumb-item active">Add Or Update</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row col-md-12">
+                            @Html.Partial("_AlertPartial")
+                        </div>
+                        <h2 class="card-title">Form Master Menu</h2>
+                    </div>
+                    <form class="form-horizontal" method="post">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.MenuId, "Menu Id", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.MenuId, new { @class = "form-control", @placeholder = "Menu Desc" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.ModuleId, "Module Id", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    <select asp-for="@Model.ModuleId" asp-items="@Model.GetModule" class="form-control select2"></select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.PageId, "Page ID", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    <select asp-for="@Model.PageId" asp-items="@Model.GetPage" class="form-control select2"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.ParentId, "Parent Id", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    <select asp-for="@Model.MenuId" , asp-items="@Model.GetPage" class="form-control select2"></select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.Seq, "Sequence", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Seq, new { @class = "form-control", @placeholder = "Sequence" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.MenuText, "Menu Text", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.MenuText, new { @class = "form-control", @placeholder = "Menu Text" })
+                                </div>
+                            </div>
+                            <div style="text-align:center">
+                                <button type="submit" title="Cancel" class="btn btn-outline-warning btn-sm" asp-controller="MsMenu" asp-action="Index">Cancel</button>
+                                <button type="submit" title="Save" class="btn btn-outline-primary btn-sm" asp-controller="MsMenu" asp-action="AddOrUpdate" asp-route-MsMenu="@Model">Save</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section CustomJsFooter
+{
+    $('.select2').select2();
+    $('.select2bs4').select2({
+        theme: 'bootstap4'
+    })
+}

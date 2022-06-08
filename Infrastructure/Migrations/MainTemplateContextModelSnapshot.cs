@@ -22,7 +22,7 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Template.Domain.Entity.MsEnumitem", b =>
+            modelBuilder.Entity("Template.Domain.Entity.MsEnumItem", b =>
                 {
                     b.Property<int>("ItemID")
                         .ValueGeneratedOnAdd()
@@ -300,6 +300,11 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasColumnOrder(0);
 
+                    b.Property<string>("UserRoleId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnOrder(2);
+
                     b.Property<string>("ActiveFlag")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
@@ -347,12 +352,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<string>("UserRoleId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("UserId", "ModuleId");
+                    b.HasKey("UserId", "ModuleId", "UserRoleId");
 
                     b.ToTable("MsUser");
                 });

@@ -9,8 +9,6 @@ namespace Template.Domain.Entity
 {
     public partial class MsPermission
     {
-        
-        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PermissionID { get; set; }

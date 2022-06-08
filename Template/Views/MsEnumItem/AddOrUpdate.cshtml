@@ -1,0 +1,93 @@
+﻿@using Template.ViewModels
+@model MsEnumItemViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    //Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Master EnumItem</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="MsEnumItem" asp-action="Index">Master EnumItem</a></li>
+                    <li class="breadcrumb-item active">Add Or Update</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row col-md-12">
+                            @Html.Partial("_AlertPartial")
+                        </div>
+                        <h2 class="card-title">Form Master EnumItem</h2>
+                    </div>
+                    <form class="form-horizontal" method="post">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.ItemID, "Item ID", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.ItemID, new { @class = "form-control", @placeholder = "Item ID" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.ItemDesc, "Item Desc", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.ItemDesc, new { @class = "form-control", @placeholder = "Item Desc" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.ItemValue, "Info 1", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.ItemValue, new { @class = "form-control", @placeholder = "Item Value" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.ItemDesc, "Item Desc", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.ItemDesc, new { @class = "form-control", @placeholder = "Item Desc" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.ParentId, "Parent Id", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control", @placeholder = "Parent Id" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.Remark, "Remark", new { @class = "col-sm-2 col-form-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Remark, new { @class = "form-control", @placeholder = "Remark" })
+                                </div>
+                            </div>
+                            <div style="text-align:center">
+                                <button type="submit" title="Cancel" class="btn btn-outline-warning btn-sm" asp-controller="MsEnumItem" asp-action="Index">Cancel</button>
+                                <button type="submit" title="Save" class="btn btn-outline-primary btn-sm" asp-controller="MsEnumItem" asp-action="AddOrUpdate" asp-route-MsEnumItem="@Model">Save</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section CustomJsFooter
+{
+
+    $("#msEnumItemdt").DataTable({
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#msEnumItemdt_wrapper .col-md-6:eq(0)');
+
+}

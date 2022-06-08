@@ -14,7 +14,6 @@ namespace Template.Mapper
         public MappingMsPage()
         {
             CreateMap<MsPage, MsPageViewModel>().ReverseMap();
-            //CreateMap<List<MsModule>, List<MsModuleViewModel>>();
         }
     }
 }

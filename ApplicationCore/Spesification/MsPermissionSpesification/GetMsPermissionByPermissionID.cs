@@ -11,7 +11,7 @@ namespace ApplicationCore.Spesification.MsPermissionSpesification
 {
     public class GetMsPermissionByPermissionID : BaseSpesification<MsPermission>
     {
-        public GetMsPermissionByPermissionID(string PermissionID) : base(x => x.PermissionID.Equals(PermissionID))
+        public GetMsPermissionByPermissionID(int PermissionID) : base(x => x.PermissionID.Equals(PermissionID))
         {
             //AddInclude(x => x.PermissionId);
         }

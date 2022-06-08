@@ -11,7 +11,8 @@ namespace ApplicationCore.Spesification.MsUserSpesification
 {
     public class GetMsUserByUserID : BaseSpesification<MsUser>
     {
-        public GetMsUserByUserID(string UserID) : base(x => x.UserId.Equals(UserID))
+        public GetMsUserByUserID(string ModuleID, string UserID, string UserRoleId) 
+            : base(x => (x.UserId.Equals(UserID) && x.ModuleId.Equals(ModuleID) && x.UserRoleId.Equals(UserRoleId)))
         {
             //AddInclude(x => x.UserId);
         }

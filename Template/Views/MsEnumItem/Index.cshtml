@@ -1,0 +1,101 @@
+﻿@using Template.ViewModels
+@model List<MsEnumItemViewModel>
+@{
+    ViewData["Title"] = "EnumItem Page";
+    //Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Master EnumItem</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item active">Master EnumItem</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row col-md-12">
+                            @Html.Partial("_AlertPartial")
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                <h2 class="card-title"> List Master EnumItem</h2>
+                            </div>
+                            <div class="col-md-6" style="text-align:right">
+                                <a class="btn btn-sm btn-primary" title="Create New" asp-controller="MsEnumItem" asp-action="AddOrUpdate">New Entry</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="msEnumItemdt" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Item ID</th>
+                                    <th>Item Category</th>
+                                    <th>ItemValue</th>
+                                    <th>ItemDesc</th>
+                                    <th>ParentId</th>
+                                    <th>Remark</th>
+                                    <th>Creator</th>
+                                    <th>Time Created</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                <tr>
+                                    <td>@item.ItemID</td>
+                                    <td>@item.ItemCategory</td>
+                                    <td>@item.ItemValue</td>
+                                    <td>@item.ItemDesc</td>
+                                    <td>@item.ParentId</td>
+                                    <td>@item.Remark</td>
+                                    <td>@item.CrtUsrId</td>
+                                    <td>@item.TsCrt</td>
+                                    <td>
+                                        <a class="blue fa fa-edit" title="Edit" asp-controller="MsEnumItem" asp-action="AddOrUpdate" asp-route-EnumItemID="@item.ItemID"></a>
+                                        <span>&emsp;</span>
+                                        <a class="red fa fa-trash delete" title="Delete" asp-controller="MsEnumItem" asp-action="Delete" asp-route-id="@item.ItemID"></a>
+                                    </td>
+                                </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<partial name="../Modals/ModalsDelete" />*@
+</div>
+@section CustomJsFooter
+{
+    $("#msEnumItemdt").DataTable({
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#msEnumItemdt_wrapper .col-md-6:eq(0)');
+
+    $(".delete").click(function(event){
+    if(confirm("Are you sure you want to Delete?"))
+    {
+    }else{
+    event.preventDefault();
+    }
+    })
+}

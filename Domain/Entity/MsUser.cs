@@ -15,6 +15,7 @@ namespace Template.Domain.Entity
         [Key, Column(Order = 1)]
         [StringLength(10)]
         public string UserId { get; set; }
+        [Key,Column(Order = 2)]
         [StringLength(50)]
         public string UserRoleId { get; set; }
         [StringLength(50)]

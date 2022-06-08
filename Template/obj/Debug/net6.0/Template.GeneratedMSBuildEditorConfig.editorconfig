@@ -31,6 +31,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kYWxzXE1vZGFsc0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Project/Template/Template-main/Template/Views/MsEnumItem/AddOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNFbnVtSXRlbVxBZGRPclVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsEnumItem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNFbnVtSXRlbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsMenu/AddOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNNZW51XEFkZE9yVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsMenu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNNZW51XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project/Template/Template-main/Template/Views/MsModule/AddOrUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNNb2R1bGVcQWRkT3JVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,6 +61,38 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Project/Template/Template-main/Template/Views/MsPage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNQYWdlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsPermission/AddOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNQZXJtaXNzaW9uXEFkZE9yVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsPermission/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNQZXJtaXNzaW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsUserRoleAccess/AddOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNVc2VyUm9sZUFjY2Vzc1xBZGRPclVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsUserRoleAccess/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNVc2VyUm9sZUFjY2Vzc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsUserRole/AddOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNVc2VyUm9sZVxBZGRPclVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsUserRole/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNVc2VyUm9sZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsUser/AddOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNVc2VyXEFkZE9yVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Template/Template-main/Template/Views/MsUser/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXNVc2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project/Template/Template-main/Template/Views/Shared/AdminLTE/_Footer.cshtml]
