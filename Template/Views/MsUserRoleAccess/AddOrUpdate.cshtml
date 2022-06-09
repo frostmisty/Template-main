@@ -34,22 +34,17 @@
                     </div>
                     <form class="form-horizontal" method="post">
                         <div class="card-body">
-                            <div class="form-group row">
-                                @Html.LabelFor(x => x.AccessID, "Access ID", new { @class = "col-sm-2 col-form-label" })
-                                <div class="col-sm-10">
-                                    @Html.TextBoxFor(x => x.AccessID, new { @class = "form-control", @placeholder = "Access ID" })
-                                </div>
-                            </div>
+                            @Html.HiddenFor(x => x.AccessID)
                             <div class="form-group row">
                                 @Html.LabelFor(x => x.UserRoleId, "Module Id", new { @class = "col-sm-2 col-form-label" })
                                 <div class="col-sm-10">
-                                    <select asp-for="@Model.UserRoleId" asp-items="@Model.GetUserRole" class="form-control select2"></select>
+                                    <select asp-for="@Model.UserRoleId" asp-items="@Model.GetUserRole" class="form-control select2-blue"></select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 @Html.LabelFor(x => x.PageId, "Page Id", new { @class = "col-sm-2 col-form-label" })
                                 <div class="col-sm-10">
-                                    <select asp-for="@Model.PageId" asp-items="@Model.GetPage" class="form-control select2"></select>
+                                    <select asp-for="@Model.PageId" asp-items="@Model.GetPage" class="form-control select2-blue"></select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -75,6 +70,11 @@
 {
     $('.select2').select2();
     $('.select2bs4').select2({
-        theme: 'bootstap4'
+    theme: 'bootstap4'
+    })
+
+    $('#PageId').change(function(){
+    var value = $('#PageId').find('option:selected').val();
+    alert(value)
     })
 }

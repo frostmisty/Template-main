@@ -16,16 +16,16 @@ namespace Template.Services
     public class MsPageService : IMsPageService
     {
         private readonly IRepository<MsPage> _msPageRepository;
-        private readonly IRepository<MsModule> _msModuleRepository;
+        private readonly IGeneralService _generalService;
         private readonly IMapper _mapper;
         public MsPageService(
             IRepository<MsPage> msPageRepository,
-            IRepository<MsModule> msModuleRepository,
+            IGeneralService generalService,
             IMapper mapper
             )
         {
             _msPageRepository = msPageRepository;
-            _msModuleRepository = msModuleRepository;
+            _generalService = generalService;
             _mapper = mapper;
         }
         public async Task<IEnumerable<MsPageViewModel>> Index()
@@ -51,7 +51,7 @@ namespace Template.Services
             {
                 ViewModel = new MsPageViewModel();
             }
-            ViewModel.GetModule = (await GetModuleList()).ToList();
+            ViewModel.GetModule = (await _generalService.GetModuleList()).ToList();
             return ViewModel;
         }
         public async Task<ReturnViewModel> Update(MsPageViewModel viewModel)
@@ -97,7 +97,7 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
 
             return returnView;
@@ -112,6 +112,11 @@ namespace Template.Services
             {
                 msPage.ActiveFlag = "N";
             }
+            else
+            {
+                returnView.IsSuccess = IsSuccess;
+                return returnView;
+            }
             try
             {
                 await _msPageRepository.DeleteAsync(msPage);
@@ -121,28 +126,12 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
             return returnView;
         }
 
         //Additional Function
 
-        public async Task<IEnumerable<SelectListItem>> GetModuleList()
-        {
-            var msModuleSpesification = new GetMsModuleList();
-            var ModuleList = _msModuleRepository.GetAllAsync(msModuleSpesification);
-
-            var items = ModuleList.Select(x => new SelectListItem()
-            {
-                Value = x.ModuleId,
-                Text = x.ModuleId
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allitems = new SelectListItem() { Value = null, Text = "Select Module", Selected = true };
-            items.Insert(0, allitems);
-            return items;
-        }
     }
 }

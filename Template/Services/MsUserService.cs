@@ -17,19 +17,16 @@ namespace Template.Services
     public class MsUserService : IMsUserService
     {
         private readonly IRepository<MsUser> _msUserRepository;
-        private readonly IRepository<MsUserRole> _msUserRoleRepository;
-        private readonly IRepository<MsModule> _msModuleRepository;
+        private readonly IGeneralService _generalService;
         private readonly IMapper _mapper;
         public MsUserService(
             IRepository<MsUser> msUserRepository,
-            IRepository<MsUserRole> msUserRoleRepository,
-            IRepository<MsModule> msModuleRepository,
+            IGeneralService generalService,
             IMapper mapper
             )
         {
             _msUserRepository = msUserRepository;
-            _msUserRoleRepository = msUserRoleRepository;
-            _msModuleRepository = msModuleRepository;
+            _generalService = generalService;
             _mapper = mapper;
         }
         public async Task<IEnumerable<MsUserViewModel>> Index()
@@ -53,8 +50,8 @@ namespace Template.Services
             {
                 ViewModel = new MsUserViewModel();
             }
-            ViewModel.GetModule = (await GetModuleList()).ToList();
-            ViewModel.GetUserRole = (await GetUserRoleList()).ToList();
+            ViewModel.GetModule = (await _generalService.GetModuleList()).ToList();
+            ViewModel.GetUserRole = (await _generalService.GetUserRoleList()).ToList();
             return ViewModel;
         }
         public async Task<ReturnViewModel> Update(MsUserViewModel viewModel)
@@ -102,7 +99,7 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
 
             return returnView;
@@ -117,6 +114,11 @@ namespace Template.Services
             {
                 msUser.ActiveFlag = "N";
             }
+            else
+            {
+                returnView.IsSuccess = IsSuccess;
+                return returnView;
+            }
             try
             {
                 await _msUserRepository.DeleteAsync(msUser);
@@ -126,43 +128,9 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
             return returnView;
-        }
-
-        //Additional Function
-        public async Task<IEnumerable<SelectListItem>> GetModuleList()
-        {
-            var msModuleSpesification = new GetMsModuleList();
-            var ModuleList = _msModuleRepository.GetAllAsync(msModuleSpesification);
-
-            var items = ModuleList.Select(x => new SelectListItem()
-            {
-                Value = x.ModuleId,
-                Text = x.ModuleId
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allitems = new SelectListItem() { Value = null, Text = "Select Module", Selected = true };
-            items.Insert(0, allitems);
-            return items;
-        }
-        public async Task<IEnumerable<SelectListItem>> GetUserRoleList()
-        {
-            var msUserRoleSpesification = new GetMsUserRoleList();
-            var UserRoleList = _msUserRoleRepository.GetAllAsync(msUserRoleSpesification);
-
-            var items = UserRoleList.Select(x => new SelectListItem()
-            {
-                Value = x.UserRoleId,
-                Text = x.UserRoleDesc
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allitems = new SelectListItem() { Value = null, Text = "Select UserRole", Selected = true };
-            items.Insert(0, allitems);
-            return items;
         }
     }
 }

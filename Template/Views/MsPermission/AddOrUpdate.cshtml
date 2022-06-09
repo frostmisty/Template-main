@@ -34,12 +34,7 @@
                     </div>
                     <form class="form-horizontal" method="post">
                         <div class="card-body">
-                            <div class="form-group row">
-                                @Html.LabelFor(x => x.PermissionID, "Permission ID", new { @class = "col-sm-2 col-form-label" })
-                                <div class="col-sm-10">
-                                    @Html.TextBoxFor(x => x.PermissionID, new { @class = "form-control", @placeholder = "Permission ID" })
-                                </div>
-                            </div>
+                            @Html.HiddenFor(x => x.PermissionID)
                             <div class="form-group row">
                                 @Html.LabelFor(x => x.PermissionDesc, "Permission Desc", new { @class = "col-sm-2 col-form-label" })
                                 <div class="col-sm-10">

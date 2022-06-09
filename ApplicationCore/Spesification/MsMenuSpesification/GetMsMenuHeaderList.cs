@@ -11,9 +11,8 @@ namespace ApplicationCore.Spesification.MsMenuSpesification
 {
     public class GetMsMenuHeaderList : BaseSpesification<MsMenu>
     {
-        public GetMsMenuHeaderList() : base(x => x.ActiveFlag.Equals("Y"))
+        public GetMsMenuHeaderList() : base(x => x.ParentId.Equals(null))
         {
-            AddInclude(x => x.ParentId.Equals(null));
         }
     }
 }

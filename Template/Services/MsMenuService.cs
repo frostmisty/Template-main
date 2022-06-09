@@ -17,19 +17,16 @@ namespace Template.Services
     public class MsMenuService : IMsMenuService
     {
         private readonly IRepository<MsMenu> _msMenuRepository;
-        private readonly IRepository<MsPage> _msPageRepository;
-        private readonly IRepository<MsModule> _msModuleRepository;
+        private readonly IGeneralService _generalService;
         private readonly IMapper _mapper;
         public MsMenuService(
             IRepository<MsMenu> msMenuRepository,
-            IRepository<MsPage> msPageRepository,
-            IRepository<MsModule> msModuleRepository,
+            IGeneralService generalService,
             IMapper mapper
             )
         {
             _msMenuRepository = msMenuRepository;
-            _msPageRepository = msPageRepository;
-            _msModuleRepository = msModuleRepository;
+            _generalService = generalService;
             _mapper = mapper;
         }
         public async Task<IEnumerable<MsMenuViewModel>> Index()
@@ -53,9 +50,9 @@ namespace Template.Services
             {
                 ViewModel = new MsMenuViewModel();
             }
-            ViewModel.GetModule = (await GetModuleList()).ToList();
-            ViewModel.GetPage = (await GetPageList()).ToList();
-            ViewModel.GetMenu = (await GetMenuList()).ToList();
+            ViewModel.GetModule = (await _generalService.GetModuleList()).ToList();
+            ViewModel.GetPage = (await _generalService.GetPageList()).ToList();
+            ViewModel.GetMenu = (await _generalService.GetMenuParentList()).ToList();
 
             return ViewModel;
         }
@@ -102,7 +99,7 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
 
             return returnView;
@@ -117,6 +114,11 @@ namespace Template.Services
             {
                 msMenu.ActiveFlag = "N";
             }
+            else
+            {
+                returnView.IsSuccess = IsSuccess;
+                return returnView;
+            }
             try
             {
                 await _msMenuRepository.DeleteAsync(msMenu);
@@ -126,60 +128,9 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
             return returnView;
-        }
-
-        //Additional Function
-        public async Task<IEnumerable<SelectListItem>> GetModuleList()
-        {
-            var msModuleSpesification = new GetMsModuleList();
-            var ModuleList = _msModuleRepository.GetAllAsync(msModuleSpesification);
-
-            var items = ModuleList.Select(x => new SelectListItem()
-            {
-                Value = x.ModuleId,
-                Text = x.ModuleId
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allitems = new SelectListItem() { Value = null, Text = "Select Module", Selected = true };
-            items.Insert(0, allitems);
-            return items;
-        }
-        public async Task<IEnumerable<SelectListItem>> GetPageList()
-        {
-            var msPageSpesification = new GetMsPageList();
-            var PageList = _msPageRepository.GetAllAsync(msPageSpesification);
-
-            var items = PageList.Select(x => new SelectListItem()
-            {
-                Value = x.PageId,
-                Text = x.PageName
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allitems = new SelectListItem() { Value = null, Text = "Select Page", Selected = true };
-            items.Insert(0, allitems);
-            return items;
-        }
-
-        public async Task<IEnumerable<SelectListItem>> GetMenuList()
-        {
-            var msMenuSpesification = new GetMsMenuHeaderList();
-            var msMenuList = _msMenuRepository.GetAllAsync(msMenuSpesification);
-
-            var items = msMenuList.Select(x => new SelectListItem()
-            {
-                Text = x.MenuText,
-                Value = x.MenuId
-            }).OrderBy(x => x.Value)
-            .ToList();
-
-            var allItems = new SelectListItem() { Value = null, Text = "Select Parent" };
-            items.Insert(0,allItems);
-            return items;
         }
     }
 }

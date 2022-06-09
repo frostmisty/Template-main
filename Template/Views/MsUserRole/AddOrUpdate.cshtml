@@ -37,7 +37,7 @@
                             <div class="form-group row">
                                 @Html.LabelFor(x => x.ModuleId, "Module Id", new { @class = "col-sm-2 col-form-label" })
                                 <div class="col-sm-10">
-                                    <select asp-for="@Model.ModuleId" asp-items="@Model.GetModule" class="form-control select2"></select>
+                                    <select asp-for="@Model.ModuleId" asp-items="@Model.GetModule" class="form-control select2-blue"></select>
                                     @*@Html.DropDownListFor(x => x.ModuleId, new { @class = "form-control", @placeholder = "Module ID" })*@
                                 </div>
                             </div>

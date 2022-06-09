@@ -20,6 +20,7 @@ namespace Template.Configuration
             services.AddScoped(typeof(IMsPermissionService), (typeof(MsPermissionService)));
             services.AddScoped(typeof(IMsEnumItemService), (typeof(MsEnumItemService)));
             services.AddScoped(typeof(IMsUserService), (typeof(MsUserService)));
+            services.AddScoped(typeof(IGeneralService), (typeof(GeneralService)));
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             var mapperConfig = new MapperConfiguration(mc =>
             {

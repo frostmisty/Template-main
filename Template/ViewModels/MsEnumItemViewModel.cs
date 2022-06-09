@@ -8,7 +8,7 @@ namespace Template.ViewModels
         public int ItemID { get; set; }
         public string ItemCategory { get; set; }
         public int Sequence { get; set; }
-        public int ParentId { get; set; }
+        public string ParentId { get; set; }
         public string ItemValue { get; set; }
         public string ItemDesc { get; set; }
         public string Remark { get; set; }
@@ -18,6 +18,6 @@ namespace Template.ViewModels
         public DateTime TsMod { get; set; }
         public string ActiveFlag { get; set; }
         public ReturnViewModel ReturnViewModel { get; set; }
-        public List<SelectListItem> GetModule { get; set; }
+        public List<SelectListItem> GetItemCategory { get; set; }
     }
 }

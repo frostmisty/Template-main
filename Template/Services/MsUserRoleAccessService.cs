@@ -18,22 +18,16 @@ namespace Template.Services
     public class MsUserRoleAccessService : IMsUserRoleAccessService
     {
         private readonly IRepository<MsUserRoleAccess> _msUserRoleAccessRepository;
-        private readonly IRepository<MsPage> _msPageRepository;
-        private readonly IRepository<MsUserRole> _msUserRoleRepository;
-        private readonly IRepository<MsPermission> _msPermissionRespository;
+        private readonly IGeneralService _generalService;
         private readonly IMapper _mapper;
         public MsUserRoleAccessService(
             IRepository<MsUserRoleAccess> msUserRoleAccessRepository,
-            IRepository<MsPage> msPageRepository,
-            IRepository<MsUserRole> msUserRoleRepository,
-            IRepository<MsPermission> msPermissionRepository,
+            IGeneralService generalService,
             IMapper mapper
             )
         {
             _msUserRoleAccessRepository = msUserRoleAccessRepository;
-            _msPageRepository = msPageRepository;
-            _msUserRoleRepository = msUserRoleRepository;
-            _msPermissionRespository = msPermissionRepository;
+            _generalService = generalService;
             _mapper = mapper;
         }
         public async Task<IEnumerable<MsUserRoleAccessViewModel>> Index()
@@ -57,9 +51,9 @@ namespace Template.Services
             {
                 ViewModel = new MsUserRoleAccessViewModel();
             }
-            ViewModel.GetUserRole = (await GetUserRoleList()).ToList();
-            ViewModel.GetPage = (await GetPageList()).ToList();
-            ViewModel.GetPermission = (await GetPermissionList()).ToList();
+            ViewModel.GetUserRole = (await _generalService.GetUserRoleList()).ToList();
+            ViewModel.GetPage = (await _generalService.GetPageList()).ToList();
+            ViewModel.GetPermission = (await _generalService.GetPermissionList()).ToList();
             return ViewModel;
         }
         public async Task<ReturnViewModel> Update(MsUserRoleAccessViewModel viewModel)
@@ -103,7 +97,7 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
 
             return returnView;
@@ -118,6 +112,11 @@ namespace Template.Services
             {
                 msUserRoleAccess.ActiveFlag = "N";
             }
+            else
+            {
+                returnView.IsSuccess = IsSuccess;
+                return returnView;
+            }
             try
             {
                 await _msUserRoleAccessRepository.DeleteAsync(msUserRoleAccess);
@@ -127,60 +126,9 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
             return returnView;
-        }
-
-        //Additional Function
-        public async Task<IEnumerable<SelectListItem>> GetUserRoleList()
-        {
-            var msUserRoleSpesification = new GetMsUserRoleList();
-            var UserRoleList = _msUserRoleRepository.GetAllAsync(msUserRoleSpesification);
-
-            var items = UserRoleList.Select(x => new SelectListItem()
-            {
-                Value = x.UserRoleId,
-                Text = x.UserRoleId
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allitems = new SelectListItem() { Value = null, Text = "Select UserRole", Selected = true };
-            items.Insert(0, allitems);
-            return items;
-        }
-        public async Task<IEnumerable<SelectListItem>> GetPageList()
-        {
-            var msPageSpesification = new GetMsPageList();
-            var PageList = _msPageRepository.GetAllAsync(msPageSpesification);
-
-            var items = PageList.Select(x => new SelectListItem()
-            {
-                Value = x.PageId,
-                Text = x.PageName
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allitems = new SelectListItem() { Value = null, Text = "Select Page", Selected = true };
-            items.Insert(0, allitems);
-            return items;
-        }
-
-        public async Task<IEnumerable<SelectListItem>> GetPermissionList()
-        {
-            var msPermissionSpesification = new GetMsPermissionList();
-            var MsPermissionList = _msPermissionRespository.GetAllAsync(msPermissionSpesification);
-
-            var items = MsPermissionList.Select(x => new SelectListItem()
-            {
-                Value = x.PermissionDesc,
-                Text = x.PermissionDesc
-            }).OrderBy(x => x.Text)
-            .ToList();
-
-            var allItems = new SelectListItem() { Value = null, Text = "Select Permission" };
-            items.Insert(0,allItems);
-            return items;
         }
     }
 }

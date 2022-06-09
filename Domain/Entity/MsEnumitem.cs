@@ -19,7 +19,8 @@ namespace Template.Domain.Entity
         public string? ItemValue { get; set; }
         [StringLength(100)]
         public string? ItemDesc { get; set; }
-        public int? ParentId { get; set; }
+        [StringLength(50)]
+        public string? ParentId { get; set; }
         [StringLength(250)]
         public string? Remark { get; set; }
         [StringLength(25)]

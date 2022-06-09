@@ -33,6 +33,11 @@ namespace Template.Services
             {
                 msModule.ActiveFlag = "N";
             }
+            else
+            {
+                returnView.IsSuccess = IsSuccess;
+                return returnView;
+            }
             try
             {
                 await _msModuleRepository.DeleteAsync(msModule);
@@ -42,7 +47,7 @@ namespace Template.Services
             catch(Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
             return returnView;
         }
@@ -129,7 +134,7 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
 
             return returnView;

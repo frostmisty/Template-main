@@ -14,13 +14,16 @@ namespace Template.Services
     public class MsEnumItemService : IMsEnumItemService
     {
         private readonly IRepository<MsEnumItem> _msEnumItemRepository;
+        private readonly IGeneralService _generalService;
         private readonly IMapper _mapper;
         public MsEnumItemService(
-            IRepository<MsEnumItem> msEnumItemRepository, 
+            IRepository<MsEnumItem> msEnumItemRepository,
+            IGeneralService generalService,
             IMapper mapper
             )
         {
             _msEnumItemRepository = msEnumItemRepository;
+            _generalService = generalService;
             _mapper = mapper;
         }
         public async Task<ReturnViewModel> Delete(int EnumItemID)
@@ -33,6 +36,11 @@ namespace Template.Services
             {
                 msEnumItem.ActiveFlag = "N";
             }
+            else
+            {
+                returnView.IsSuccess = IsSuccess;
+                return returnView;
+            }
             try
             {
                 await _msEnumItemRepository.DeleteAsync(msEnumItem);
@@ -42,7 +50,7 @@ namespace Template.Services
             catch(Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
             return returnView;
         }
@@ -56,6 +64,7 @@ namespace Template.Services
             {
                 ViewModel = new MsEnumItemViewModel();
             }
+            ViewModel.GetItemCategory = (await _generalService.GetItemCategoryList()).ToList();
             return ViewModel;
         }
 
@@ -128,7 +137,7 @@ namespace Template.Services
             catch (Exception ex)
             {
                 returnView.IsSuccess = IsSuccess;
-                returnView.ReturnValue = ex.InnerException.Message;
+                returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
 
             return returnView;
