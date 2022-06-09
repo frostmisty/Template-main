@@ -10,6 +10,7 @@ namespace Template.Interface
     {
         Task<IEnumerable<MsMenuViewModel>> Index();
         Task<MsMenuViewModel> GetMsMenuByID(string MenuID);
+        Task<MsMenuViewModel> GetMenubyModuleIDPageID(string ModuleID, string PageID);
         Task<ReturnViewModel> Update(MsMenuViewModel viewModel);
         Task<ReturnViewModel> Delete(string MenuID);
     }

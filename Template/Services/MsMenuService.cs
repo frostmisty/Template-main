@@ -132,5 +132,13 @@ namespace Template.Services
             }
             return returnView;
         }
+
+        public async Task<IEnumerable<MsMenuViewModel>> GetMenubyModuleIDPageID(string ModuleID, string PageID)
+        {
+            var msmenuspesification = new GetMsMenuByPageIDandModuleID(PageID, ModuleID);
+            var msmenulist = _msMenuRepository.GetItemBySpesification(msmenuspesification);
+            var ViewModel = _mapper.Map<IEnumerable<MsMenu>, IEnumerable<MsMenuViewModel>>(msmenulist);
+            return ViewModel;
+        }
     }
 }

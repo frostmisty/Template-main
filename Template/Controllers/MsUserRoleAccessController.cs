@@ -23,7 +23,6 @@ namespace Template.Controllers
             var viewModels = await _msUserRoleAccessService.Index();
             return View(viewModels);
         }
-        //[HttpGet("UserRoleAccessID")]
         public async Task<IActionResult> AddOrUpdate(int AccessID)
         {
             var viewModels = await _msUserRoleAccessService.GetMsUserRoleAccessByID(AccessID);

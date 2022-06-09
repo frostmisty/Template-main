@@ -59,6 +59,15 @@ namespace Template.Controllers
                     return View(ViewModel);
                 }
             }
+            //check pageid dan moduleid
+
+            var msmenuviewmodel = await _msMenuService.GetMenubyModuleIDPageID(ViewModel.ModuleId, ViewModel.PageId);
+            if(msmenuviewmodel != null)
+            {
+                Error("Page ID dan Module ID sudah pernah diinput");
+                return View(ViewModel);
+            }
+
             ReturnViewModel returnView = new ReturnViewModel();
             returnView = await _msMenuService.Update(ViewModel);
 
