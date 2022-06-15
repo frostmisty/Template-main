@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Template\\Template-main\\Template\\Template.csproj": {}
+    "D:\\Project\\Template-main\\Template\\Template.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
+    "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
-        "packagesPath": "C:\\Users\\01135702\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Template\\Template-main\\ApplicationCore\\obj\\",
+        "projectPath": "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\Template-main\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01135702\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj"
+              "D:\\Project\\Template-main\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Project\\Template-main\\Domain\\Domain.csproj"
               }
             }
           }
@@ -64,21 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj": {
+    "D:\\Project\\Template-main\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Project\\Template-main\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\01135702\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Template\\Template-main\\Domain\\obj\\",
+        "projectPath": "D:\\Project\\Template-main\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\Template-main\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01135702\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,7 +86,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -118,21 +118,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Project\\Template\\Template-main\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Template\\Template-main\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\Project\\Template\\Template-main\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\01135702\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Template\\Template-main\\Infrastructure\\obj\\",
+        "projectPath": "D:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\Template-main\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01135702\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,17 +140,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj"
+              "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj"
               },
-              "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Project\\Template\\Template-main\\Domain\\Domain.csproj"
+              "D:\\Project\\Template-main\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Project\\Template-main\\Domain\\Domain.csproj"
               }
             }
           }
@@ -205,21 +205,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Project\\Template\\Template-main\\Template\\Template.csproj": {
+    "D:\\Project\\Template-main\\Template\\Template.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Template\\Template-main\\Template\\Template.csproj",
+        "projectUniqueName": "D:\\Project\\Template-main\\Template\\Template.csproj",
         "projectName": "Template",
-        "projectPath": "D:\\Project\\Template\\Template-main\\Template\\Template.csproj",
-        "packagesPath": "C:\\Users\\01135702\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Template\\Template-main\\Template\\obj\\",
+        "projectPath": "D:\\Project\\Template-main\\Template\\Template.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\Template-main\\Template\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01135702\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -227,17 +227,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "D:\\Project\\Template\\Template-main\\ApplicationCore\\ApplicationCore.csproj"
+              "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "D:\\Project\\Template-main\\ApplicationCore\\ApplicationCore.csproj"
               },
-              "D:\\Project\\Template\\Template-main\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "D:\\Project\\Template\\Template-main\\Infrastructure\\Infrastructure.csproj"
+              "D:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\Project\\Template-main\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -329,7 +329,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

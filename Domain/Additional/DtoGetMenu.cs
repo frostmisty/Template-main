@@ -10,10 +10,13 @@ namespace Template.Domain.Additional
     public class DtoGetMenu
     {
         public string PageId { get; set; }
+        public string PageName { get; set; }
+        public string PageIcon { get; set; }
         public string ParentId { get; set; }
         public string MenuId { get; set; }
         public string MenuText { get; set; }
         public int Seq { get; set; }
+        public List<DtoGetMenuChild> Children { get; set; }
     }
 }
 

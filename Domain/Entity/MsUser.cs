@@ -22,6 +22,7 @@ namespace Template.Domain.Entity
         public string? Area { get; set; }
         [StringLength(50)]
         public string? FullName { get; set; }
+        public string? Password { get; set; }
         [StringLength(50)]
         public string? Email { get; set; }
         public string? Info1 { get; set; }

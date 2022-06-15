@@ -343,6 +343,9 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("TsCrt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")

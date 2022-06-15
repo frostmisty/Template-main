@@ -9,6 +9,8 @@ namespace ApplicationCore.Additional
 {
     public interface IGetMenu
     {
-        public DtoGetMenu GetMenuList(string UserId, string userRoleId);
+        public string GetMenuList(string UserId, string userRoleId);
+        public List<DtoGetMenu> GetMenuListDto(string UserId, string userRoleId);
+        public List<DtoGetMenuChild> GetMenuListChild(string UserId, string userRoleId);
     }
 }
