@@ -2,6 +2,7 @@
 using ApplicationCore.Interface.Base;
 using ApplicationCore.Spesification;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Template.Domain.Entity;
 using Template.Interface;
@@ -10,6 +11,7 @@ using Template.ViewModels.Base;
 
 namespace Template.Controllers
 {
+    [Authorize]
     public class MsEnumItemController : BaseController
     {
         public readonly IMsEnumItemService _msEnumItemService;

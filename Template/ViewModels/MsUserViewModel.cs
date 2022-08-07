@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 using Template.ViewModels.Base;
 
 namespace Template.ViewModels
@@ -10,7 +11,11 @@ namespace Template.ViewModels
         public string UserRoleId { get; set; }
         public string Area { get; set; }
         public string FullName { get; set; }
+
+        [EmailAddress]
         public string Email { get; set; }
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
         public string Info1 { get; set; }
         public string Info2 { get; set; }
         public string Info3 { get; set; }

@@ -17,6 +17,7 @@ namespace Infrastructure
             //services.AddDbContext<MainTemplateContext>(x =>x.UseSqlServer(configuration.GetConnectionString("MainConnection")));
 
            services.AddDbContext<MainTemplateContext>(x =>x.UseSqlServer(configuration.GetConnectionString("LocalConnection")));
+           services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(configuration.GetConnectionString("LocalConnection")));
         }
     }
 }

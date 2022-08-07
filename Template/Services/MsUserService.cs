@@ -11,20 +11,27 @@ using Template.Interface;
 using Template.ViewModels;
 using Template.ViewModels.Base;
 using ApplicationCore.Spesification.MsUserRoleSpesification;
+using Infrastructure.Identity;
 
 namespace Template.Services
 {
     public class MsUserService : IMsUserService
     {
+        //private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<MsUserViewModel> _logger;
         private readonly IRepository<MsUser> _msUserRepository;
         private readonly IGeneralService _generalService;
         private readonly IMapper _mapper;
         public MsUserService(
+            //UserManager<ApplicationUser> userManager,
+            ILogger<MsUserViewModel> logger,
             IRepository<MsUser> msUserRepository,
             IGeneralService generalService,
             IMapper mapper
             )
         {
+            //_userManager = userManager;
+            _logger = logger;
             _msUserRepository = msUserRepository;
             _generalService = generalService;
             _mapper = mapper;
@@ -59,7 +66,7 @@ namespace Template.Services
             bool IsNew = false;
             bool IsSuccess = false;
             var returnView = new ReturnViewModel();
-            var checkUserID = new GetMsUserByUserID(viewModel.ModuleId,viewModel.UserId,viewModel.UserRoleId);
+            var checkUserID = new GetMsUserByUserID(viewModel.ModuleId, viewModel.UserId, viewModel.UserRoleId);
             var msUser = _msUserRepository.GetByIDAsync(checkUserID);
             if (msUser == null)
             {
@@ -101,6 +108,22 @@ namespace Template.Services
                 returnView.IsSuccess = IsSuccess;
                 returnView.ReturnValue = ex.InnerException == null ? ex.Message : ex.InnerException.Message;
             }
+
+            //if(IsSuccess == true)
+            //{
+            //    var user = new ApplicationUser { UserName = viewModel.UserId, Email = viewModel.Email };
+            //    var result = await _userManager.CreateAsync(user, viewModel.Password);
+            //    if (result.Succeeded)
+            //    {
+            //        _logger.LogInformation("User Has been Created using passwod");
+
+            //    }
+            //    foreach (var error in result.Errors)
+            //    {
+            //        IsSuccess = false;
+            //        returnView.ReturnValue = error.Description;
+            //    }
+            //}
 
             return returnView;
         }
