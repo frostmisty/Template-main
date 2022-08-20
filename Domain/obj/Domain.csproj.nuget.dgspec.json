@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Template-main\\Domain\\Domain.csproj": {}
+    "d:\\Project\\Template-main\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Template-main\\Domain\\Domain.csproj": {
+    "d:\\Project\\Template-main\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Template-main\\Domain\\Domain.csproj",
+        "projectUniqueName": "d:\\Project\\Template-main\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Project\\Template-main\\Domain\\Domain.csproj",
+        "projectPath": "d:\\Project\\Template-main\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Template-main\\Domain\\obj\\",
+        "outputPath": "d:\\Project\\Template-main\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
